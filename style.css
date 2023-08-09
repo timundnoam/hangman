@@ -32,6 +32,7 @@ h1 {
     font-size: 4rem;
     color: #896deb;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 h3 {
@@ -53,8 +54,8 @@ body{
         place-content: center;
         place-items: center;
       overflow-x: hidden;
-      overflow-y: scroll;
-      height: 90%;
+      overflow-y: hidden;
+      height: 100%;
 
 }
 
@@ -154,7 +155,7 @@ div.keyboard-row {
     border-radius: 0.25em;
     width: 4em;
     height: 4em;
-    margin: 0 5px;
+    margin: 5px;
     color: #6c6eab;
 }
 
@@ -426,7 +427,8 @@ button.btn2 :hover{
 
 
     }
-    
+
+
 
   }
 
@@ -448,6 +450,7 @@ button.btn2 :hover{
 
     h1{
         height: 1em;
+        margin-top: 0;
 
 
     }
@@ -575,4 +578,96 @@ p {
 
   }
 
+  @media only screen and (max-width: 500px) {
+   .key :hover {
+            pointer-events: none;
+   }
 
+  }
+
+@media only screen and (max-width: 803px){
+
+    .modal-content2 {
+        width: 70%;
+        height: 25%;
+    }
+
+    .modal-content {
+        width: 70%;
+        height: 25%;
+    }
+    
+    
+}
+
+@media only screen and (max-width: 330px){
+body {
+        display: block;
+        margin: 0 auto;
+        justify-content: center;
+}
+
+
+div.hangman {
+        width: 100%;
+}
+
+.key {
+    width: 26px;
+
+}
+
+body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+}
+
+
+
+}
+
+@media only screen and (max-width: 304px) {
+
+    div.hangman {
+width: 100%;
+display: flex;
+position: relative;
+justify-content: center;
+
+
+    }
+    body {
+        display: block;
+        margin: 0 auto;
+        justify-content: center;
+}
+
+
+}
+
+
+
+@media only screen and (max-width: 363px) {
+    .key {
+    
+        width: 28px;
+        justify-content: center;
+        position: relative;
+        display: flex;
+    
+    
+    }
+    
+    
+    
+    }
+    
+    @media only screen and (max-height: 1004px) {
+        body {
+            overflow-y: scroll;
+
+        }
+
+
+       }
+     
