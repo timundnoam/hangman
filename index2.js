@@ -170,32 +170,31 @@ const animals = [
    
    const ctx = canvas.getContext ('2d');
    
+   let answerArray = [];
+
+
+ //Zufälliges Wort auswählen und in einzelne Buchstaben aufteilen
    randomWord = () => {
    
-      
-   
        let index = Math.floor(Math.random() * animals.length);
-   
      //  console.log('a', index);
    
        let answer = animals[index];
-   
-      // console.log('b', answer);
+       answerArray.push(answer);
+      //console.log('b', answer);
    
     
-   
        animalChars = answer.split('');
-   
       // console.log('c', animalChars);
    
     
-   
        let animalWordLength = animalChars.length;
-   
      //  console.log('d', animalWordLength);
    
    }
-   
+
+
+  //Richtige Anzahl Felder generieren
    randomWord();
    
    animalChars.forEach(function(char){
@@ -206,25 +205,21 @@ const animals = [
    
     
    
-   console.log(strhtml);
    
    document.getElementById("chars").innerHTML = strhtml
     
-   
-   function appendLetter(letter) {
-   
-       checkKey(letter);
-     //  console.log(letter);
-       //console.log(lives);
-   }
+
+   //Gedrückter Buchstabe prüfen
+    function appendLetter(letter) {
+    checkKey(letter);
+    }
    
    
    
    
    
    
-   
-   
+   //Nur Eingabe prüfen, falls der Spieler noch Versuche hat 
    document.addEventListener('keypress', (event) => { if (lives >= 1) {checkKey(event.key)}
    });
    
@@ -233,163 +228,41 @@ const animals = [
    
    
    
-   // Eingabe kontrollieren
-   
+   // Eingabe prüfen & zuordnen
    function checkKey(key) {
 
-        if (pressedChars.includes(key)){
+    if (pressedChars.includes(key)){
             return;
-        }else{
+    }else{
             pressedChars.push(key);
             document.getElementById(key).style['color'] = '#818589';
             document.getElementById(key).style['backround-color'] = '#818589';
             document.getElementById(key).style['border-color'] = '#818589';
             document.getElementById(key).style['pointer-events'] = 'none';
             
-        }
+    }
 
-       const idx = animalChars.findIndex((char) => char === key);
-   
-       function drawHangman(){
-
-        if(galgen == true){ctx.strokeStyle = '#ffffff';
-
-        ctx.lineWidth = 2
-
-        ctx.beginPath();
-
-        ctx.moveTo(115, 20);
-
-        ctx.lineTo(115, 150);
-
-        ctx.moveTo(80, 150);
-
-        ctx.lineTo(200, 150);
-
-        ctx.stroke(), galgen = false}
-
- 
-
-        else if(kopf == true){ctx.lineWidth = 2
-
-            ctx.beginPath();
-
-            ctx.moveTo(113, 20);
-
-            ctx.lineTo(195, 20);              
-
-            ctx.stroke(), kopf = false}
-
- 
-
-        else if(koerper == true){ctx.beginPath();
-
-            ctx.lineWidth = 2
-
-            ctx.moveTo(195, 19);
-
-            ctx.lineTo(195, 45);              
-
-            ctx.stroke(), koerper = false}
-
- 
-
-        else if(koerper == true){ctx.beginPath();
-
-            ctx.lineWidth = 1.5
-
-            ctx.arc(195, 56, 12, 0, 2*Math.PI);
-
-            ctx.stroke(), koerper = false}
-
- 
-
-        else if(linkerArm == true){ctx.beginPath();
-
-            ctx.lineWidth = 1.5
-
-            ctx.arc(195, 56, 12, 0, 2*Math.PI);
-
-            ctx.stroke(), linkerArm = false}
-
- 
-
-        else if(rechterArm == true){ctx.beginPath();
-
-            ctx.moveTo(195, 67);
-
-            ctx.lineTo(195, 90);
-
-            ctx.stroke(), rechterArm = false}
-
- 
-
-        else if(linkesBein == true){ctx.beginPath();
-
-            ctx.moveTo(195, 90);
-
-            ctx.lineTo(180, 107);
-
-            ctx.moveTo(195, 90);
-
-            ctx.lineTo(210, 107);
-
-            ctx.stroke(), linkesBein = false}
-
- 
-
-        else if(rechtesBein == true){ctx.beginPath();
-
-            ctx.moveTo(195, 80);
-
-            ctx.lineTo(175, 69);
-
-            ctx.moveTo(195, 80);
-
-            ctx.lineTo(215, 69);
-
-            ctx.stroke(), rechtesBein = false}
-
- 
-
-            };
+        const idx = animalChars.findIndex((char) => char === key);
+        drawHangman();
 
 
-
-
-
-
-
-
-
-
-   
-       if (idx >= 0) {
+    //Buchstabe anzeigen, falls richtig
+    if (idx >= 0) {
 
    
     
    
-            // gucken wo buchstabe überall vorkommt
+    // gucken wo buchstabe überall vorkommt
+    let elems = document.getElementsByClassName('bchstabe-' + key.toLowerCase());
     
-     
-    
-            let elems = document.getElementsByClassName('bchstabe-' + key.toLowerCase());
-    
-                for (let i = 0; i < elems.length; i++) {
-    
-                    elems[i].style['color'] = '#000000';
-    
-               
-    
-            }
-    
-     
-    
-            // buchstabe anzeigen
-    
-           // console.log('a1', revealedChars);
-            revealedChars.push(...animalChars.filter(c => c.toLowerCase() === key.toLowerCase()));
-           // console.log('newArray', revealedChars);
+    for (let i = 0; i < elems.length; i++) {
+    elems[i].style['color'] = '#000000';
+    }
+
+
+    //   
+    revealedChars.push(...animalChars.filter(c => c.toLowerCase() === key.toLowerCase()));
+           
         
 
     
@@ -411,6 +284,122 @@ const animals = [
     
    
    }
+
+
+    //Galgenmännchen zeichnen
+
+    function drawHangman(){
+
+    if(galgen == true){ctx.strokeStyle = '#ffffff';
+
+    ctx.lineWidth = 2
+
+    ctx.beginPath();
+
+    ctx.moveTo(115, 20);
+
+    ctx.lineTo(115, 150);
+
+    ctx.moveTo(80, 150);
+
+    ctx.lineTo(200, 150);
+
+    ctx.stroke(), galgen = false}
+
+
+
+    else if(kopf == true){ctx.lineWidth = 2
+
+        ctx.beginPath();
+
+        ctx.moveTo(113, 20);
+
+        ctx.lineTo(195, 20);              
+
+        ctx.stroke(), kopf = false}
+
+
+
+    else if(koerper == true){ctx.beginPath();
+
+        ctx.lineWidth = 2
+
+        ctx.moveTo(195, 19);
+
+        ctx.lineTo(195, 45);              
+
+        ctx.stroke(), koerper = false}
+
+
+
+    else if(koerper == true){ctx.beginPath();
+
+        ctx.lineWidth = 1.5
+
+        ctx.arc(195, 56, 12, 0, 2*Math.PI);
+
+        ctx.stroke(), koerper = false}
+
+
+
+    else if(linkerArm == true){ctx.beginPath();
+
+        ctx.lineWidth = 1.5
+
+        ctx.arc(195, 56, 12, 0, 2*Math.PI);
+
+        ctx.stroke(), linkerArm = false}
+
+
+
+    else if(rechterArm == true){ctx.beginPath();
+
+        ctx.moveTo(195, 67);
+
+        ctx.lineTo(195, 90);
+
+        ctx.stroke(), rechterArm = false}
+
+
+
+    else if(linkesBein == true){ctx.beginPath();
+
+        ctx.moveTo(195, 90);
+
+        ctx.lineTo(180, 107);
+
+        ctx.moveTo(195, 90);
+
+        ctx.lineTo(210, 107);
+
+        ctx.stroke(), linkesBein = false}
+
+
+
+    else if(rechtesBein == true){ctx.beginPath();
+
+        ctx.moveTo(195, 80);
+
+        ctx.lineTo(175, 69);
+
+        ctx.moveTo(195, 80);
+
+        ctx.lineTo(215, 69);
+
+        ctx.stroke(), rechtesBein = false}
+
+
+
+        };
+
+
+
+
+
+
+
+
+
    
    
    
@@ -423,7 +412,7 @@ const animals = [
            drawHangman = false;
            KeyboardEvent = false;
            modal.style.display = "block";
-           word.innerHTML = '<p>Das gesuchte Wort war ' +answer+ '</p>';
+           word.innerHTML = '<p class="answer">Das gesuchte Wort war ' + answerArray + '</p>';
            
        }
       
