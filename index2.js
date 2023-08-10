@@ -243,7 +243,7 @@ const animals = [
     }
 
         const idx = animalChars.findIndex((char) => char === key);
-        drawHangman();
+       
 
 
     //Buchstabe anzeigen, falls richtig
