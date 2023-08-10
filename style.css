@@ -56,6 +56,11 @@ body{
       overflow-x: hidden;
       overflow-y: hidden;
       height: 100%;
+      -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 
 }
 
@@ -89,15 +94,23 @@ input.bchstbe{
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-weight: lighter;
             color: transparent;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             margin-top: 10px;
-            margin-bottom: 10px;
-          
-            
-            
-            
+            margin-bottom: 10px;    -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;  
           
 }
+
+input.bchstabe:focus{
+    border-radius: 10px;
+    border: 2px solid #555;
+    border-color: red;
+
+}
+
 
 
 .container {
@@ -106,7 +119,9 @@ input.bchstbe{
 }
 
 
-
+::selection {
+    background: transparent;
+  }
 
 
 div.chars {
@@ -116,6 +131,11 @@ div.chars {
         display: block;
         width: 300px;
         text-align: center;
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 
       
 
@@ -138,6 +158,7 @@ p {
             margin-top: 5px;
             margin: 0 auto;
             justify-content: center;
+            font-size: 1.5em;
 
 
 }
