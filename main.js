@@ -176,23 +176,23 @@ const animals = [
    
        let index = Math.floor(Math.random() * animals.length);
    
-       console.log('a', index);
+      
    
        let answer = animals[index];
    
-       console.log('b', answer);
+       
    
     
    
        animalChars = answer.split('');
    
-       console.log('c', animalChars);
+      
    
     
    
        let animalWordLength = animalChars.length;
    
-       console.log('d', animalWordLength);
+
    
    }
    
@@ -206,7 +206,7 @@ const animals = [
    
     
    
-   console.log(strhtml);
+
    
    document.getElementById("chars").innerHTML = strhtml
     
@@ -214,8 +214,7 @@ const animals = [
    function appendLetter(letter) {
    
        checkKey(letter);
-       console.log(letter);
-       console.log(lives);
+    
    }
    
    
@@ -387,9 +386,9 @@ const animals = [
     
             // buchstabe anzeigen
     
-            console.log('a1', revealedChars);
+           
             revealedChars.push(...animalChars.filter(c => c.toLowerCase() === key.toLowerCase()));
-            console.log('newArray', revealedChars);
+         
         
 
     
