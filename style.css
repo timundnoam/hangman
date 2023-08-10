@@ -131,6 +131,19 @@ p {
 
 }
 
+.answer {
+            color: rgb(238, 26, 26);
+            background-color: rgb(255, 255, 255);
+            margin-bottom: 0px;
+            margin-top: 5px;
+            margin: 0 auto;
+            justify-content: center;
+
+
+}
+
+
+
 
 #keyboard {
   
