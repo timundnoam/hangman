@@ -352,7 +352,7 @@ button.btn2 :hover{
         display: flex;
         border: 1px solid #888;
         width: 40%;
-        height: 20%;
+        height: 30%;
         border-radius: 30px;
         top: 30%;
         position: relative;
@@ -409,7 +409,7 @@ button.btn2 :hover{
         display: flex;
         border: 1px solid #888;
         width: 40%;
-        height: 20%;
+        height: 30%;
         border-radius: 30px;
         top: 30%;
         position: relative;
@@ -714,4 +714,49 @@ justify-content: center;
 
 
        }
+     
+
+       @media only screen and (max-height: 745px) {
+       .modal-content {
+            height: 35%;
+
+       }
+
+       .modal-content2 {
+        height: 35%;
+
+   }
+
+       }
+         
+
+
+
+
+       @media only screen and (max-height: 540px) {
+        .modal-content {
+             height: 40%;
+ 
+        }
+ 
+        .modal-content2 {
+         height: 40%;
+ 
+    }
+ 
+        }
+          
+        @media only screen and (max-height: 465px) {
+            .modal-content {
+                 height: 50%;
+     
+            }
+     
+            .modal-content2 {
+             height: 50%;
+     
+        }
+     
+            }
+              
      
