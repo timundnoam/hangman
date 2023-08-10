@@ -199,7 +199,7 @@ const animals = [
    
    animalChars.forEach(function(char){
    
-       strhtml += '  <input id="bchstabe" readonly class="bchstbe bchstabe-' + char.toLowerCase() + '" value="   ' + char + '    "></input>   '
+       strhtml += '  <input disabled id="bchstabe" readonly class="bchstbe bchstabe-' + char.toLowerCase() + '" value="   ' + char + '    "></input>   '
    
    })
    
