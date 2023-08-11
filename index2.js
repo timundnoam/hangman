@@ -441,4 +441,12 @@ const animals = [
    
    
    let word = document.getElementById("word");
-   
+
+
+document.getElementById("english").addEventListener("click", function english(){
+window.location.replace("https://timundnoam.github.io/hangman-en");
+
+
+})
+
+
