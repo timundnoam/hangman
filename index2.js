@@ -167,6 +167,22 @@ const animals = [
    let pressedChars = [];
 
    let answerArray = [];
+
+   let english = false;
+
+   let german = true;
+
+   var modal = document.getElementById("myModal");
+
+   var modal2 = document.getElementById("myModal2");
+
+   var key = document.getElementsByClassName("key");
+
+   var span = document.getElementsByClassName("close")[0];
+
+   let engButton = document.getElementById("english");
+
+   let word = document.getElementById("word");
    
    const canvas = document.getElementById('cstickman');
    
@@ -204,8 +220,6 @@ const animals = [
    })
    
     
-   
-   
    document.getElementById("chars").innerHTML = strhtml;
     
 
@@ -215,10 +229,7 @@ const animals = [
     }
    
    
-   
-   
-   
-   
+
    //Nur Eingabe prüfen, falls der Spieler noch Versuche hat 
    document.addEventListener('keypress', (event) => { if (lives >= 1) {checkKey(event.key)}
    });
@@ -249,9 +260,7 @@ const animals = [
     //Buchstabe anzeigen, falls richtig
     if (idx >= 0) {
 
-   
-    
-   
+
     // gucken wo buchstabe überall vorkommt
     let elems = document.getElementsByClassName('bchstabe-' + key.toLowerCase());
     
@@ -259,19 +268,13 @@ const animals = [
     elems[i].style['color'] = '#000000';
     }
 
-
-    //   
+    
     revealedChars.push(...animalChars.filter(c => c.toLowerCase() === key.toLowerCase()));
            
         
-
-    
    if (revealedChars.length === animalChars.length) {
        modal2.style.display = "block";
-
-   
    }
-   
    
    
        } else {
@@ -283,6 +286,7 @@ const animals = [
     
    
    }
+
 
 
     //Galgenmännchen zeichnen
@@ -385,9 +389,7 @@ const animals = [
             ctx.lineTo(215, 69);
     
             ctx.stroke(), rechtesBein = false}
-    
-    
-    
+
             };
     
     
@@ -416,31 +418,40 @@ const animals = [
    });
       
    
-   
-   
-   var modal = document.getElementById("myModal");
-   var modal2 = document.getElementById("myModal2");
-   var key = document.getElementsByClassName("key");
-   var span = document.getElementsByClassName("close")[0];
-   
-   
-   
    document.getElementById("startagain3").addEventListener("click", function startagain2(){
        window.location.reload();
-       
-       
        });
-       
-       
+        
    document.getElementById("startagain2").addEventListener("click", function startagain2(){
    window.location.reload();
-   
-   
    });
    
    
-   
-   let word = document.getElementById("word");
+
+   /*
+   document.getElementById("english").addEventListener("click", function changelanguage(){
+    english = true;
+    german = false;
+
+   })
+
+
+   if (english == true){
+//sprache auf englisch unmstellen
+   }
+
+
+   if (german === true){
+    document.getElementById
+("english").innerHTML = 'Auf Deutsch umstellen';
+   }
+
+
+   if (english == false){
+engButton.innerHTML = 'Change To English'
+
+   }
+*/
 
 
 document.getElementById("english").addEventListener("click", function english(){
@@ -448,5 +459,3 @@ window.location.replace("https://timundnoam.github.io/hangman-en");
 
 
 })
-
-
